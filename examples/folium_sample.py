@@ -18,7 +18,22 @@ map = folium.Map(location=SEATTLE_COORDINATES, zoom_start=12)
  
 # add a marker for every record in the filtered data, use a clustered view
 for _, row in data[0:MAX_RECORDS].iterrows():
-  popup=folium.Popup(row['Address'], max_width=450)
+  popup = folium.Popup(row['Address'], max_width=450)
+  html_str="""
+      <h1> This is a big popup</h1><br>
+      With a few lines of code...
+      <p>
+      <code>
+          from numpy import *<br>
+          exp(-2*pi)
+      </code>
+      </p>
+      """
+  html_str = """
+     <a href="https://www.ibm.com/" target="_blank"> IBM</a> 
+     """
+  iframe = folium.IFrame(html=html_str, width=500, height=300)
+  popup = folium.Popup(iframe, max_width=2650)
   folium.Marker([row['Latitude'], row['Longitude']], popup=popup).add_to(map)
 map.save("map.html")
 
