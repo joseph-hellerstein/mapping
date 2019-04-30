@@ -28,7 +28,6 @@ url = url % (center, "%", "%", "%", "%", "%", "%", api_key)
 # get method of requests module 
 # return response object 
 r = requests.get(url)
-import pdb; pdb.set_trace()
   
 # wb mode is stand for write binary mode 
 f = open('map_file.png', 'wb') 

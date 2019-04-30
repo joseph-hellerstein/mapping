@@ -17,5 +17,5 @@ directions_result = gmaps.directions("Sydney Town Hall",
                                      "Parramatta, NSW",
                                      mode="transit",
                                      departure_time=now)
-import pdb; pdb.set_trace()
-pass
+with open('route_api.txt', 'w') as fd:
+  fd.writelines()
